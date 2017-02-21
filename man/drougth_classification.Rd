@@ -4,11 +4,11 @@
 \alias{drougth_classification}
 \title{calculation of drougth classification}
 \usage{
-drougth_classification(r = call_n_pfiles(), p_files = call_Perc_files(),
+drougth_classification(r = dekadal_cal, p_files = call_Perc_files(),
   fun_ = drought_class)
 }
 \arguments{
-\item{r}{a vector several raster directories (output of \link[MIDAS]{call_n_pfiles})}
+\item{r}{a raster object (output of \link[MIDAS]{dekadal_cal})}
 
 \item{p_files}{percentile files (output of \link[MIDAS]{call_Perc_files})}
 

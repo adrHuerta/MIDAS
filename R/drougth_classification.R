@@ -2,13 +2,13 @@
 #' @description calculation of drougth classification
 #' @author Adrian Huerta
 #' @importFrom raster overlay brick
-#' @param r a vector several raster directories (output of \link[MIDAS]{call_n_pfiles})
+#' @param r a raster object (output of \link[MIDAS]{dekadal_cal})
 #' @param p_files percentile files (output of \link[MIDAS]{call_Perc_files})
 #' @param fun_ a function that classify drougth
 #' @return a raster file object
 #' @export
 
-drougth_classification <- function(r = call_n_pfiles(),
+drougth_classification <- function(r = dekadal_cal,
                                    p_files = call_Perc_files(),
                                    fun_ = drought_class){
 
