@@ -17,7 +17,7 @@ checking date of calculation of dekedal amounts of precipitation
 }
 \examples{
 check_date_dek("2017-01-01")
-check_date_dek("2017-01-02")
+check_date_dek("2017-01-11")
 }
 \author{
 Adrian Huerta

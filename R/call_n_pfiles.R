@@ -22,7 +22,7 @@ call_n_pfiles <- function(dir_pisco = "C:/Users/usuario 01/Desktop/Google drive"
   if(daily_val == "11" | daily_val == "21"){
 
     raster_dates <- dekada_date - c(10:1)
-    raster_names <- paste("SONICS_", format(raster_dates, "%Y"), format(raster_dates, "%m"), format(raster_dates, "%d"), "-D1-1.tif", sep=  "")
+    raster_names <- paste("SONICS_", substr(as.character(format(raster_dates, "%Y")), 3, 4), format(raster_dates, "%m"), format(raster_dates, "%d"), "-D1-1.tif", sep=  "")
     return(file.path(dir_pisco, raster_dates, "raster", raster_names))
 
   } else {
@@ -30,7 +30,7 @@ call_n_pfiles <- function(dir_pisco = "C:/Users/usuario 01/Desktop/Google drive"
     d_1 <- format(dekada_date - 1, "%d")
     raster_dates <- seq(dekada_date - as.numeric(d_1), dekada_date - 1, by = "day")
     raster_dates <- raster_dates[-c(1:20)]
-    raster_names <- paste("SONICS_", format(raster_dates, "%Y"), format(raster_dates, "%m"), format(raster_dates, "%d"), "-D1-1.tif", sep=  "")
+    raster_names <- paste("SONICS_", substr(as.character(format(raster_dates, "%Y")), 3, 4), format(raster_dates, "%m"), format(raster_dates, "%d"), "-D1-1.tif", sep=  "")
     return(file.path(dir_pisco, raster_dates, "raster", raster_names))
 
   }

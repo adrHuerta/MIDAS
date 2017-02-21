@@ -5,7 +5,7 @@
 #' @return a stop message if the date is different of 1, 11, or 21
 #' @examples
 #' check_date_dek("2017-01-01")
-#' check_date_dek("2017-01-02")
+#' check_date_dek("2017-01-11")
 #' @export
 
 check_date_dek <- function(z){
