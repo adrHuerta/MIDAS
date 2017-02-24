@@ -6,7 +6,7 @@
 \usage{
 
   call_Perc_files(dir_percent = "C:/Users/usuario 01/Desktop/Clim_dek_percentiles",
-  dekada_date = "2017-02-21")
+  dekada_date = Sys.Date())
 }
 \arguments{
 \item{dir_percent}{a directory format}

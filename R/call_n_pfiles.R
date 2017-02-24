@@ -12,7 +12,7 @@
 
 
 call_n_pfiles <- function(dir_pisco = "C:/Users/usuario 01/Desktop/Google drive",
-                          dekada_date = "2017-02-21"){
+                          dekada_date = Sys.Date()){
 
   check_date_dek(dekada_date)
 

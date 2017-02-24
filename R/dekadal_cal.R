@@ -8,8 +8,10 @@
 
 dekadal_cal <- function(r_files = call_n_pfiles()){
 
-  brick(lapply(as.list(r_files), function(z){
+  r <- brick(lapply(as.list(r_files), function(z){
     raster(z)
-  }))
+    }))
+
+  return(sum(r))
 
 }

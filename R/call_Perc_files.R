@@ -11,7 +11,7 @@
 #' @export
 
 call_Perc_files <- function(dir_percent = "C:/Users/usuario 01/Desktop/Clim_dek_percentiles",
-                            dekada_date = "2017-02-21"){
+                            dekada_date = Sys.Date()){
 
   check_date_dek(dekada_date)
 

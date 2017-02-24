@@ -5,7 +5,7 @@
 \title{call raster Pisco files}
 \usage{
 call_n_pfiles(dir_pisco = "C:/Users/usuario 01/Desktop/Google drive",
-  dekada_date = "2017-02-21")
+  dekada_date = Sys.Date())
 }
 \arguments{
 \item{dir_pisco}{a directory format}
