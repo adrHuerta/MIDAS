@@ -5,7 +5,7 @@
 #' @param dir_save_file a character object (directory where is saved)
 #' @param name_file a character object
 #' @return a png file
-#' @importFrom raster reclassify
+#' @importFrom raster reclassify values
 #' @importFrom sp spplot sp.polygons sp.points sp.text
 #' @importFrom latticeExtra layer
 #' @importFrom maptools sp.pointLabel
@@ -23,6 +23,7 @@ plot_dekadalstat_amount <- function(r = drougth_classification(),
   data("oceano.shp", package = "MIDAS")
   data("logo_senamhi", package = "MIDAS")
   data("desierto", package = "MIDAS")
+  data("lago.shp", package = "MIDAS")
   data("depart", package = "MIDAS")
   data("capital.shp", package = "MIDAS")
 
@@ -48,12 +49,12 @@ plot_dekadalstat_amount <- function(r = drougth_classification(),
   #                   300, Inf, 8), ncol = 3, byrow = TRUE)
   #
   # r <- reclassify(r, clase)
-  values(r) <- as.factor(values(r))
+  raster::values(r) <- as.factor(raster::values(r))
 
   labelat = c(1, 2, 3, 4, 5, 6, 7)
   labeltext = c("Sequía \nextrema", "Sequía \nsevera", "Sequía \nmoderada", "Normal", "Moderadamente \nhúmedo","Severamente \nhúmedo","Extremadamente  \nhúmedo")
 
-  colfunc <- colorRampPalette(c("red", "coral","white","lightskyblue1","blue"))
+  colfunc <- grDevices::colorRampPalette(c("red", "coral","white","lightskyblue1","blue"))
   p_drought <- colfunc(7)
 
   ############# MAP
@@ -63,34 +64,34 @@ plot_dekadalstat_amount <- function(r = drougth_classification(),
                     colorkey=list(labels=list(at = labelat, labels = labeltext), title="?ndice",space="bottom",width=1.5,height=1)) +
     #agregando capas de shapefiles
     #layer(sp.polygons(PISCO_CONF, lwd=0.1, col=c("gray60","transparent"),fill = c("gray60","transparent"),alpha=c(1,1)))+
-    latticeExtra::layer(sp.polygons(sudamerica.shp, lwd=0.8, col='darkgray',fill="gray")) +
+    latticeExtra::layer(sp::sp.polygons(sudamerica.shp, lwd=0.8, col='darkgray',fill="gray")) +
     #layer(sp.polygons(sudamerica_shp, lwd=0.8, col='darkgray',fill="gray")) +
-    #latticeExtra::layer(sp.polygons(lago.shp, lwd=0.8, col='deepskyblue',fill = "deepskyblue",fisrt=FALSE)) +
+    latticeExtra::layer(sp::sp.polygons(lago.shp, lwd=0.8, col='deepskyblue',fill = "deepskyblue",fisrt=FALSE)) +
 
-    latticeExtra::layer(sp.polygons(oceano.shp, lwd=0.05, col=NA,fill = "deepskyblue",alpha=1))+
-    latticeExtra::layer(sp.polygons(desierto, lwd=0.1, col=NA,fill = "gray30",alpha=1)) +
+    latticeExtra::layer(sp::sp.polygons(oceano.shp, lwd=0.05, col=NA,fill = "deepskyblue",alpha=1))+
+    latticeExtra::layer(sp::sp.polygons(desierto, lwd=0.1, col=NA,fill = "gray30",alpha=1)) +
     #layer(sp.lines(rios.shp, lwd=0.8, col='steelblue',alpha=0.9,fisrt=FALSE))+
-    latticeExtra::layer(sp.polygons(depart, lwd=0.9, col='gray20',fill="transparent")) +
-    latticeExtra::layer(sp.points( capital.shp, pch=19, cex=.8, col='midnightblue')) +
+    latticeExtra::layer(sp::sp.polygons(depart, lwd=0.9, col='gray20',fill="transparent")) +
+    latticeExtra::layer(sp::sp.points( capital.shp, pch=19, cex=.8, col='midnightblue')) +
 
 
-    latticeExtra::layer(sp.text(loc = c(-77,-1), txt = "Ecuador",col='white'))+
-    latticeExtra::layer(sp.text(loc = c(-71.5,-1), txt = "Colombia",col='white'))+
-    latticeExtra::layer(sp.text(loc = c(-71,-8), txt = "Brasil",col='white'))+
-    latticeExtra::layer(sp.text(loc = c(-68.2,-15), txt = "Bolivia",col='white'))+
-    latticeExtra::layer(sp.text(loc = c(-70,-18.7), txt = "Chile",col='white'))+
-    latticeExtra::layer(sp.text(loc = c(-79.5,-10), txt = "Océano Pacífico",col='white',srt=-60,cex=0.9))+
-    latticeExtra::layer(sp.text(loc = c(-74,-16.5), txt = "Océano Pacífico",col='white',srt=-25,cex=0.9))+
-    latticeExtra::layer(sp.text(loc = c(-74.5,-9.5), txt = "Perú",col='white',cex=1.5))+
+    latticeExtra::layer(sp::sp.text(loc = c(-77,-1), txt = "Ecuador",col='white'))+
+    latticeExtra::layer(sp::sp.text(loc = c(-71.5,-1), txt = "Colombia",col='white'))+
+    latticeExtra::layer(sp::sp.text(loc = c(-71,-8), txt = "Brasil",col='white'))+
+    latticeExtra::layer(sp::sp.text(loc = c(-68.2,-15), txt = "Bolivia",col='white'))+
+    latticeExtra::layer(sp::sp.text(loc = c(-70,-18.7), txt = "Chile",col='white'))+
+    latticeExtra::layer(sp::sp.text(loc = c(-79.5,-10), txt = "Océano Pacífico",col='white',srt=-60,cex=0.9))+
+    latticeExtra::layer(sp::sp.text(loc = c(-74,-16.5), txt = "Océano Pacífico",col='white',srt=-25,cex=0.9))+
+    latticeExtra::layer(sp::sp.text(loc = c(-74.5,-9.5), txt = "Perú",col='white',cex=1.5))+
 
-    latticeExtra::layer(sp.pointLabel(capital.shp, label=capital.shp$NOMBREDD,cex=0.7, col='midnightblue',fontface=2))
+    latticeExtra::layer(maptools::sp.pointLabel(capital.shp, label=capital.shp$NOMBREDD,cex=0.7, col='midnightblue',fontface=2))
 
   #fig.spi <- update(fig.spi,key = list(x=0,y=0.07,cex.title=1,title='Leyenda', columns=2,rect = list(col=c("yellow","blue"), fill = c("yellow","blue"),alpha=0.5), text = list(c("Desierto","Area de estimacisn no confiable","FFF"))))
   fig.spi <- update(fig.spi,key = list(x=0,y=0.1,cex.title=1,title='Leyenda', columns=1,
 
 
                                        rect = list(col=c("gray30","gray60"), fill = c("gray30","gray60"),alpha=c(1.0,1.0)),
-                                       text = list(c("Desierto","Estimaci?n \nde SPI no confiable")),
+                                       text = list(c("Desierto","Estimación \nde SPI no confiable")),
 
                                        lines=list(lty=c(1,1),col=c("steelblue","gray20"),alpha=1),
                                        text = list(c("Ríos","Límites \nde departamento")),
