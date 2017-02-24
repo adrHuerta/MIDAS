@@ -10,5 +10,7 @@ License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    raster (>= 2.5-8), sp (>= 1.2-4)
+    raster (>= 2.5-8), sp (>= 1.2-4), lattice (>= 0.20-34),
+    latticeExtra (>= 0.6-28), maptools (>= 0.8-41), ggplot2 (>= 2.2.1),
+    grid (>= 3.3.2), grDevices (>= 3.3.2)
 RoxygenNote: 6.0.1
