@@ -23,7 +23,8 @@ make_raster_filename <- function(dekada_date = Sys.Date()){
 
   if( daily_val == "01" ) {
 
-    date_for <- paste(format(dekada_date, "%Y"), format(dekada_date, "%m"), "-3", sep = "")
+    date_for <- dekada_date - as.difftime(1, unit="days")
+    date_for <- paste(format(date_for, "%Y"), format(date_for, "%m"), "-3", sep = "")
     raster_dek <- sprintf(raster_dek, date_for)
     raster_dek_stat <- sprintf(raster_dek_stat, date_for)
     raster_dek_png <- sprintf(raster_dek_png, date_for)
