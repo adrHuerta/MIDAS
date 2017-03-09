@@ -6,7 +6,7 @@
 \usage{
 plot_dekadalstat_amount(r = drougth_classification(),
   dir_save_file = "C:/Users/usuario 01/Desktop/DEK_files",
-  name_file = make_raster_filename()$raster_dek_png)
+  name_file = make_raster_filename()$raster_dek_stat_png)
 }
 \arguments{
 \item{r}{a raster object}

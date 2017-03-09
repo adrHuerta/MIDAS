@@ -16,7 +16,7 @@
 
 plot_dekadalstat_amount <- function(r = drougth_classification(),
                                 dir_save_file = "C:/Users/usuario 01/Desktop/DEK_files",
-                                name_file = make_raster_filename()$raster_dek_png) {
+                                name_file = make_raster_filename()$raster_dek_stat_png) {
 
   data("sudamerica.shp", package = "MIDAS")
   data("rios.shp", package = "MIDAS")
@@ -71,7 +71,7 @@ plot_dekadalstat_amount <- function(r = drougth_classification(),
     latticeExtra::layer(sp::sp.polygons(oceano.shp, lwd=0.05, col=NA,fill = "deepskyblue",alpha=1))+
     latticeExtra::layer(sp::sp.polygons(desierto, lwd=0.1, col=NA,fill = "gray30",alpha=1)) +
     #layer(sp.lines(rios.shp, lwd=0.8, col='steelblue',alpha=0.9,fisrt=FALSE))+
-    latticeExtra::layer(sp::sp.polygons(depart, lwd=0.9, col='gray20',fill="transparent")) +
+    latticeExtra::layer(sp::sp.polygons(depart, lwd=2, col='gray20',fill="transparent")) +
     latticeExtra::layer(sp::sp.points( capital.shp, pch=19, cex=.8, col='midnightblue')) +
 
 

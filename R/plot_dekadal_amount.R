@@ -68,9 +68,9 @@ plot_dekadal_amount <- function(r = dekadal_cal(),
     latticeExtra::layer(sp::sp.polygons(lago.shp, lwd=0.8, col='deepskyblue',fill = "deepskyblue",fisrt=FALSE)) +
 
     latticeExtra::layer(sp::sp.polygons(oceano.shp, lwd=0.05, col=NA,fill = "deepskyblue",alpha=1))+
-    latticeExtra::layer(sp::sp.polygons(desierto, lwd=0.1, col=NA,fill = "gray30",alpha=1)) +
+    #latticeExtra::layer(sp::sp.polygons(desierto, lwd=0.1, col=NA,fill = "gray30",alpha=1)) +
     #layer(sp.lines(rios.shp, lwd=0.8, col='steelblue',alpha=0.9,fisrt=FALSE))+
-    latticeExtra::layer(sp::sp.polygons(depart, lwd=0.9, col='gray20',fill="transparent")) +
+    latticeExtra::layer(sp::sp.polygons(depart, lwd=2, col='gray20',fill="transparent")) +
     latticeExtra::layer(sp::sp.points( capital.shp, pch=19, cex=.8, col='midnightblue')) +
 
 
@@ -88,9 +88,9 @@ plot_dekadal_amount <- function(r = dekadal_cal(),
   #fig.spi <- update(fig.spi,key = list(x=0,y=0.07,cex.title=1,title='Leyenda', columns=2,rect = list(col=c("yellow","blue"), fill = c("yellow","blue"),alpha=0.5), text = list(c("Desierto","Area de estimacisn no confiable","FFF"))))
   fig.spi <- update(fig.spi,key = list(x=0,y=0.1,cex.title=1,title='Leyenda', columns=1,
 
-
-                                       rect = list(col=c("gray30","gray60"), fill = c("gray30","gray60"),alpha=c(1.0,1.0)),
-                                       text = list(c("Desierto","Estimación \nde SPI no confiable")),
+#
+#                                        rect = list(col=c("gray30","gray60"), fill = c("gray30","gray60"),alpha=c(1.0,1.0)),
+#                                        text = list(c("Desierto","Estimación \nde SPI no confiable")),
 
                                        lines=list(lty=c(1,1),col=c("steelblue","gray20"),alpha=1),
                                        text = list(c("Ríos","Límites \nde departamento")),
