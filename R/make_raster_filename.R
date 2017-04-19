@@ -17,14 +17,14 @@ make_raster_filename <- function(dekada_date = Sys.Date()){
   daily_val <- format(dekada_date, "%d")
 
   raster_dek <- "DEK_%s.tif"
-  raster_dek_stat <- "DEK_%s_stat.tif"
+  raster_dek_stat <- "DEC_%s.tif"
   raster_dek_png <- "DEK_%s.png"
-  raster_dek_stat_png <- "DEK_%s_stat.png"
+  raster_dek_stat_png <- "DEC_%s.png"
 
   if( daily_val == "01" ) {
 
     date_for <- dekada_date - as.difftime(1, unit="days")
-    date_for <- paste(format(date_for, "%Y"), format(date_for, "%m"), "-3", sep = "")
+    date_for <- paste(format(date_for, "%Y"), format(date_for, "%m"), "_3", sep = "")
     raster_dek <- sprintf(raster_dek, date_for)
     raster_dek_stat <- sprintf(raster_dek_stat, date_for)
     raster_dek_png <- sprintf(raster_dek_png, date_for)
@@ -32,7 +32,7 @@ make_raster_filename <- function(dekada_date = Sys.Date()){
 
   } else if ( daily_val == "11") {
 
-    date_for <- paste(format(dekada_date, "%Y"), format(dekada_date, "%m"), "-1", sep = "")
+    date_for <- paste(format(dekada_date, "%Y"), format(dekada_date, "%m"), "_1", sep = "")
     raster_dek <- sprintf(raster_dek, date_for)
     raster_dek_stat <- sprintf(raster_dek_stat, date_for)
     raster_dek_png <- sprintf(raster_dek_png, date_for)
@@ -40,7 +40,7 @@ make_raster_filename <- function(dekada_date = Sys.Date()){
 
   } else if ( daily_val == "21") {
 
-    date_for <- paste(format(dekada_date, "%Y"), format(dekada_date, "%m"), "-2", sep = "")
+    date_for <- paste(format(dekada_date, "%Y"), format(dekada_date, "%m"), "_2", sep = "")
     raster_dek <- sprintf(raster_dek, date_for)
     raster_dek_stat <- sprintf(raster_dek_stat, date_for)
     raster_dek_png <- sprintf(raster_dek_png, date_for)
