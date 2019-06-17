@@ -7,5 +7,5 @@ El monitoreo décadal (decadiario) de precipitaciones del SENAMHI (MIDAS) está 
 
 ## Outputs
 
-The figures are showed [here](http://www.peruclima.pe/?p=monitoreo-decadal-precipitacion)
+The figures are showed [here](https://www.senamhi.gob.pe/?p=monitoreo-decadal-precipitacion)
 
